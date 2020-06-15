@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <ul>
+            <li><a href="#" onclick="goToPage('product_detail_1')">Ke Product 1</a></li>
+            <li><a href="#" onclick="goToPage('product_detail_2')">Ke Product 2</a></li>
+            <li><a href="#" onclick="goToPage('product_detail_3')">Ke Product 3</a></li>
+        </ul>
+        
+        <div id="content"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+           function goToPage(page){
+                console.log(page);
+                var content = $('#content');
+                $.get("process.jsp?page="+page, function( response ) {
+                    console.log('output: ');
+                    console.log(response);
+                    content.html(response);
+                 });
+            }
+          
+        </script>
+    </body>
+</html>
